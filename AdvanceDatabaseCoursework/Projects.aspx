@@ -128,6 +128,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
+                <div class="button-container" style="margin-bottom: 20px;">
+    <asp:HyperLink ID="btnBackToDashboard" runat="server" NavigateUrl="Dashboard.aspx" CssClass="btn btn-secondary">
+        ← Go Back to Dashboard
+    </asp:HyperLink>
+</div>
         <div>
           
             <asp:GridView ID="GridView1"   CssClass ="table table-bordered" runat="server" AutoGenerateColumns="False" DataKeyNames="PROJECT_ID" DataSourceID="SqlDataSource1">
@@ -187,7 +192,7 @@
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <div class="button-container">
-                    <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New Project" CssClass="btn btn-new" />
+                    <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text=" Add New Project" CssClass="btn btn-new" />
                      </div>
                 </ItemTemplate>
             </asp:FormView>

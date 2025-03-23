@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="/content/bootstrap.min.css" rel ="stylesheet" />
-                <style>
+    <style>
     body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
@@ -149,6 +149,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
+                <div class="button-container" style="margin-bottom: 20px;">
+    <asp:HyperLink ID="btnBackToDashboard" runat="server" NavigateUrl="Dashboard.aspx" CssClass="btn btn-secondary">
+        ← Go Back to Dashboard
+    </asp:HyperLink>
+</div>
         <div>
             <asp:GridView ID="GridView1"   CssClass ="table table-bordered" runat="server" AutoGenerateColumns="False" DataKeyNames="MILESTONE_ID" DataSourceID="SqlDataSource1">
                 <Columns>
@@ -159,6 +164,13 @@
                     <asp:BoundField DataField="MILESTONE_DUEDATE" HeaderText="MILESTONE_DUEDATE" SortExpression="MILESTONE_DUEDATE" />
                     <asp:BoundField DataField="MILESTONE_STATUS" HeaderText="MILESTONE_STATUS" SortExpression="MILESTONE_STATUS" />
                     <asp:BoundField DataField="PROJECT_ID" HeaderText="PROJECT_ID" SortExpression="PROJECT_ID" />
+                    <asp:TemplateField HeaderText="project_name">
+                        <ItemTemplate>
+                            <asp:DropDownList Enabled="false" ID="DropDownList2" runat="server" DataSourceID="projectdata" DataTextField="PROJECT_NAME" DataValueField="PROJECT_ID" SelectedValue='<%# Bind("PROJECT_ID") %>'>
+                            </asp:DropDownList>
+                            <asp:SqlDataSource ID="projectdata" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT &quot;PROJECT_ID&quot;, &quot;PROJECT_NAME&quot; FROM &quot;PROJECTS&quot;"></asp:SqlDataSource>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM &quot;MILESTONES&quot; WHERE &quot;MILESTONE_ID&quot; = :MILESTONE_ID" InsertCommand="INSERT INTO &quot;MILESTONES&quot; (&quot;MILESTONE_ID&quot;, &quot;MILESONE_NAME&quot;, &quot;MILESTONE_STARTDATE&quot;, &quot;MILESTONE_DUEDATE&quot;, &quot;MILESTONE_STATUS&quot;, &quot;PROJECT_ID&quot;) VALUES (:MILESTONE_ID, :MILESONE_NAME, :MILESTONE_STARTDATE, :MILESTONE_DUEDATE, :MILESTONE_STATUS, :PROJECT_ID)" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT &quot;MILESTONE_ID&quot;, &quot;MILESONE_NAME&quot;, &quot;MILESTONE_STARTDATE&quot;, &quot;MILESTONE_DUEDATE&quot;, &quot;MILESTONE_STATUS&quot;, &quot;PROJECT_ID&quot; FROM &quot;MILESTONES&quot;" UpdateCommand="UPDATE &quot;MILESTONES&quot; SET &quot;MILESONE_NAME&quot; = :MILESONE_NAME, &quot;MILESTONE_STARTDATE&quot; = :MILESTONE_STARTDATE, &quot;MILESTONE_DUEDATE&quot; = :MILESTONE_DUEDATE, &quot;MILESTONE_STATUS&quot; = :MILESTONE_STATUS, &quot;PROJECT_ID&quot; = :PROJECT_ID WHERE &quot;MILESTONE_ID&quot; = :MILESTONE_ID">
@@ -216,7 +228,7 @@
                 <ItemTemplate>
                     <div class="button-container">
                    <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New Milestone"  CssClass="btn btn-new"/>
-                        </div>
+                     </div>
                 </ItemTemplate>
             </asp:FormView>
         </div>

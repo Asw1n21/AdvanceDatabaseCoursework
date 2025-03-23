@@ -95,7 +95,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Subtasks.aspx" />
-    <Content Include="Tasks.aspx" />
+    <Content Include="Task.aspx" />
     <Content Include="UserProjects.aspx" />
     <Content Include="UserProjectTasks.aspx" />
     <Content Include="Users.aspx" />
@@ -138,12 +138,12 @@
     <Compile Include="Subtasks.aspx.designer.cs">
       <DependentUpon>Subtasks.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Tasks.aspx.cs">
-      <DependentUpon>Tasks.aspx</DependentUpon>
+    <Compile Include="Task.aspx.cs">
+      <DependentUpon>Task.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Tasks.aspx.designer.cs">
-      <DependentUpon>Tasks.aspx</DependentUpon>
+    <Compile Include="Task.aspx.designer.cs">
+      <DependentUpon>Task.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserProjects.aspx.cs">
       <DependentUpon>UserProjects.aspx</DependentUpon>

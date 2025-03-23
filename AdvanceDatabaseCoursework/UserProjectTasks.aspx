@@ -68,6 +68,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
+                <div class="button-container" style="margin-bottom: 20px;">
+    <asp:HyperLink ID="btnBackToDashboard" runat="server" NavigateUrl="Dashboard.aspx" CssClass="btn btn-secondary">
+        ← Go Back to Dashboard
+    </asp:HyperLink>
+</div>
         <div>
             <asp:SqlDataSource ID="SqlDataSource1"    runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM (
     SELECT 

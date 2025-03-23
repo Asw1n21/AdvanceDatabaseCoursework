@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace AdvanceDatabaseCoursework
 {
-    public partial class Tasks : System.Web.UI.Page
+    public partial class Task : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
